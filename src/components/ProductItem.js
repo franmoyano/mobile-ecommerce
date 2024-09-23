@@ -9,7 +9,7 @@ import { colors } from "../global/colors";
 import { useNavigation } from "@react-navigation/native";
 
 const ProductItem = ({ product }) => {
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const navigation = useNavigation();
 
   return (
@@ -35,7 +35,7 @@ export default ProductItem;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.green1,
+    backgroundColor: colors.blue1,
     marginVertical: 10,
     flexDirection: "row",
     alignItems: "center",

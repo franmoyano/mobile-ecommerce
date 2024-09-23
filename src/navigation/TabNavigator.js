@@ -68,11 +68,11 @@ export default TabNavigator;
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: colors.green3,
+    backgroundColor: colors.blue3,
     height: 80,
     borderRadius: 10,
-    width: '95%',
-    margin: 'auto',
-    marginBottom: 10
+    width: "95%",
+    margin: "auto",
+    marginBottom: 10,
   },
 });

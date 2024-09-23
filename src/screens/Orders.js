@@ -3,6 +3,7 @@ import OrderItem from "../components/OrderItem";
 import { useGetOrdersByUserQuery } from "../services/orders";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useSelector } from "react-redux";
+import NoContent from "./NoContent";
 
 const Orders = () => {
   const localId = useSelector((state) => state.auth.localId);
@@ -11,12 +12,9 @@ const Orders = () => {
 
   if (isLoading) return <LoadingSpinner />;
 
-  if (orders.length === 0)
-    return (
-      <View>
-        <Text>vacio</Text>
-      </View>
-    );
+  if (orders.length === 0) {
+    return <NoContent />;
+  }
   return (
     <View>
       <FlatList

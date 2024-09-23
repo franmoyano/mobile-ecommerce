@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
-import Entypo from "@expo/vector-icons/Entypo";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { colors } from "../global/colors";
+import { toCurrency } from "../utils/string-utils";
 
 const CartItem = ({ item }) => {
   return (
@@ -8,9 +9,9 @@ const CartItem = ({ item }) => {
       <View style={styles.containerText}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.brand}>{item.brand}</Text>
-        <Text style={styles.price}>{item.price} $</Text>
+        <Text style={styles.price}>{toCurrency(item.price)}</Text>
       </View>
-      <Entypo name="trash" size={48} color="black" />
+      <MaterialIcons name="delete" size={48} color="white" />
     </View>
   );
 };
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
   container: {
     width: "90%",
     marginHorizontal: "5%",
-    backgroundColor: colors.green2,
+    backgroundColor: colors.blue2,
     marginVertical: 10,
     padding: 20,
     flexDirection: "row",

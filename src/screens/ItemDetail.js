@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { useGetProductQuery } from "../services/shop";
 import LoadingSpinner from "../components/LoadingSpinner";
+import { toCurrency } from "../utils/string-utils";
 
 const ItemDetail = ({ route }) => {
   const { id } = route.params;
@@ -30,7 +31,7 @@ const ItemDetail = ({ route }) => {
         <View style={styles.containerText}>
           <Text style={styles.title}>{product.title}</Text>
           <Text style={styles.description}>{product.description}</Text>
-          <Text style={styles.price}>Precio: {product.price} $</Text>
+          <Text style={styles.price}>Precio: {toCurrency(product.price)}</Text>
         </View>
         <Pressable style={styles.button} onPress={handleAddItemCart}>
           <Text style={styles.buttonText}>Comprar</Text>
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
   button: {
     width: "80%",
     marginHorizontal: "10%",
-    backgroundColor: colors.green3,
+    backgroundColor: colors.blue3,
     borderRadius: 3,
     padding: 10,
     alignItems: "center",

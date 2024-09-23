@@ -39,6 +39,7 @@ const MyProfile = ({ navigation }) => {
         title="Agregar localizacion"
         onPress={() => navigation.navigate("LocationSelector")}
       />
+      {/* <View><Text>{user.locations?.[user.locations.length - 1]}</Text></View> */}
       <FlatList
         data={user.locations}
         keyExtractor={(item) => item.id}
@@ -61,7 +62,8 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   image: {
-    width: 150,
-    height: 150,
+    width: 200,
+    height: 200,
+    borderRadius: 8
   },
 });

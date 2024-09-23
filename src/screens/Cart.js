@@ -5,6 +5,8 @@ import { colors } from "../global/colors";
 import { useDispatch, useSelector } from "react-redux";
 import { usePostOrderMutation } from "../services/orders";
 import { clearCart } from "../features/cart/cartSlice";
+import NoContent from "./NoContent";
+import { toCurrency } from "../utils/string-utils";
 
 const Cart = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -22,12 +24,9 @@ const Cart = ({ navigation }) => {
     dispatch(clearCart());
     navigation.navigate("OrdersStack");
   };
-  if (cart.total === 0)
-    return (
-      <View>
-        <Text>vacio</Text>
-      </View>
-    );
+  if (cart.total === 0) {
+    return <NoContent />;
+  }
   return (
     <View style={styles.container}>
       <FlatList
@@ -39,7 +38,7 @@ const Cart = ({ navigation }) => {
         <Pressable onPress={handleAddOrder}>
           <Text style={styles.textConfirm}>Confirmar</Text>
         </Pressable>
-        <Text style={styles.textConfirm}>Total: {cart.total} $</Text>
+        <Text style={styles.textConfirm}>Total: {toCurrency(cart.total)}</Text>
       </View>
     </View>
   );
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   containerConfirm: {
-    backgroundColor: colors.green2,
+    backgroundColor: colors.blue2,
     padding: 20,
     flexDirection: "row",
     justifyContent: "space-between",

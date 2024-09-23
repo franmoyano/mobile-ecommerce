@@ -37,16 +37,18 @@ export default Header;
 const styles = StyleSheet.create({
   container: {
     marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-    backgroundColor: colors.green2,
+    backgroundColor: colors.blue2,
     width: "100%",
     height: 80,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    position: "relative",
+    position: "relative"
   },
   text: {
     fontSize: 25,
+    color: "#FFF",
+    fontWeight: 'bold'
   },
   icon: {
     position: "absolute",

@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { colors } from "../global/colors";
 import { useNavigation } from "@react-navigation/native";
+import { toCurrency } from "../utils/string-utils";
 
 const OrderItem = ({ item }) => {
   const navigation = useNavigation();
@@ -13,7 +14,7 @@ const OrderItem = ({ item }) => {
       <View style={styles.container}>
         <View style={styles.containerText}>
           <Text style={styles.date}>{item.createdAt}</Text>
-          <Text style={styles.total}>Total: ${item.total}</Text>
+          <Text style={styles.total}>Total: {toCurrency(item.total)}</Text>
         </View>
         <AntDesign name="search1" size={30} color="black" />
       </View>
@@ -25,7 +26,7 @@ export default OrderItem;
 
 const styles = StyleSheet.create({
   container: {
-    borderColor: colors.green3,
+    borderColor: colors.blue3,
     borderWidth: 2,
     width: "90%",
     marginHorizontal: "5%",
